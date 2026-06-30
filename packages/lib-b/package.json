@@ -3,14 +3,16 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./*": {
-      "node-production": "./dist/*",
-      "default": "./src/*"
+    ".": {
+      "ts-src": "./src/index.ts",
+      "types": "./dist/src/index.d.ts",
+      "default": "./dist/src/index.js"
     },
     "./.env.schema": "./.env.schema"
   },
   "scripts": {
-    "typecheck": "tsc --noEmit"
+    "build": "tsc -b",
+    "typecheck": "tsc -b"
   },
   "dependencies": {
     "@_/lib-a": "workspace:*",

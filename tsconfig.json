@@ -1,0 +1,10 @@
+{
+  // Solution-style root config: `tsc -b` (from the repo root) builds every
+  // referenced package in dependency order, emitting each one's declarations
+  // before the packages that depend on it are type-checked.
+  "files": [],
+  "references": [
+    { "path": "./packages/lib-a" },
+    { "path": "./packages/lib-b" }
+  ]
+}

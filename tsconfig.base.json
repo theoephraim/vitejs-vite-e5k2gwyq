@@ -23,7 +23,22 @@
     "target": "es2024",
     "types": ["node"],
     "useUnknownInCatchVariables": true,
-    "verbatimModuleSyntax": true
+    "verbatimModuleSyntax": true,
+
+    // --- monorepo cross-package type-checking ---
+    // Emit declarations and build via project references (`tsc -b`) so that a
+    // consuming package type-checks a sibling against its BUILT .d.ts, not its
+    // source. By the time a package is built, any `ENV.*` (varlock/env) types
+    // have been inferred and inlined into the .d.ts, so the global
+    // `declare module 'varlock/env'` augmentation never has to agree across
+    // package boundaries. See README.md for the full explanation.
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    // Force imports of a referenced project to resolve to its built .d.ts
+    // instead of being silently redirected back to its source .ts files
+    // (which would re-introduce the cross-package env-augmentation conflict).
+    "disableSourceOfProjectReferenceRedirect": true
   },
   "exclude": ["node_modules", "dist"]
 }
