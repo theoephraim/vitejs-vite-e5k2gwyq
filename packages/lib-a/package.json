@@ -1,0 +1,21 @@
+{
+  "name": "@_/lib-a",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./*": {
+      "node-production": "./dist/*",
+      "default": "./src/*"
+    },
+    "./.env.schema": "./.env.schema"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "varlock": "^1.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.1"
+  }
+}

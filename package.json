@@ -1,0 +1,8 @@
+{
+  "name": "varlock-monorepo",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}
